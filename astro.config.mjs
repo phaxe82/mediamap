@@ -5,7 +5,7 @@ import tailwind from '@astrojs/tailwind';
 // Update `base` to your repo name if deploying to a project page, e.g. /mediamap
 // Leave `base` as '/' if using a custom domain (e.g. mediamapx.ai)
 export default defineConfig({
-  site: 'https://yourusername.github.io',
-  base: '/',
+  site: 'https://phaxe82.github.io',
+  base: '/mediamap',
   integrations: [tailwind()],
 });
