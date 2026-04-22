@@ -447,6 +447,16 @@ main{
 .bench-val{color:var(--text2);font-variant-numeric:tabular-nums}
 .bench-target{color:var(--orange);font-weight:700;font-variant-numeric:tabular-nums}
 
+/* ── YOUTUBE LINK ── */
+.yt-link{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:11px;font-weight:700;letter-spacing:.3px;text-transform:uppercase;
+  color:#FF0000;background:rgba(255,0,0,0.1);border:1px solid rgba(255,0,0,0.2);
+  border-radius:7px;padding:4px 9px;text-decoration:none;margin-top:5px;
+  -webkit-tap-highlight-color:transparent;
+}
+.yt-link:active{opacity:.7}
+
 /* ── TOAST ── */
 #toast{
   position:fixed;top:calc(var(--safe-t) + 60px);left:50%;transform:translateX(-50%) translateY(-20px);
@@ -1061,6 +1071,7 @@ function renderWorkout(){
         <div>
           <div class="ex-num">Exercise ${ei+1} of ${exercises.length}</div>
           <div class="ex-name">${ex.name}</div>
+          <a class="yt-link" href="https://www.youtube.com/results?search_query=${encodeURIComponent(ex.name+' exercise tutorial form')}" target="_blank" onclick="event.stopPropagation()">▶ YouTube</a>
           <div class="ex-chips">
             <div class="chip">${ex.sets} sets</div>
             <div class="chip">${ex.reps} reps</div>
