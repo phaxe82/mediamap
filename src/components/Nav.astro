@@ -17,12 +17,71 @@
         Early Access
       </a>
     </div>
-    <!-- Mobile CTA -->
-    <a
-      href="#waitlist"
-      class="md:hidden bg-[#f5a623] text-black text-sm font-semibold px-4 py-2 rounded-full hover:bg-[#e09415] transition-colors"
+    <!-- Mobile: hamburger toggle button -->
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden flex flex-col gap-1.5 p-2 text-white/60 hover:text-white transition-colors"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
     >
-      Early Access
-    </a>
+      <span class="block w-5 h-0.5 bg-current transition-all duration-200" id="bar1"></span>
+      <span class="block w-5 h-0.5 bg-current transition-all duration-200" id="bar2"></span>
+      <span class="block w-5 h-0.5 bg-current transition-all duration-200" id="bar3"></span>
+    </button>
+  </div>
+
+  <!-- Mobile dropdown menu -->
+  <div
+    id="mobile-menu"
+    class="md:hidden hidden border-t border-white/5 bg-[#0d0d0d]"
+  >
+    <div class="flex flex-col px-6 py-4 gap-1 text-sm text-white/60">
+      <a href="#what-we-do" class="py-3 hover:text-white transition-colors border-b border-white/5">What We Do</a>
+      <a href="#how-it-works" class="py-3 hover:text-white transition-colors border-b border-white/5">How It Works</a>
+      <a href="#about" class="py-3 hover:text-white transition-colors border-b border-white/5">About</a>
+      <a
+        href="#waitlist"
+        class="mt-3 bg-[#f5a623] text-black font-semibold px-4 py-3 rounded-full hover:bg-[#e09415] transition-colors text-center"
+      >
+        Early Access
+      </a>
+    </div>
   </div>
 </nav>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const bar1 = document.getElementById('bar1');
+  const bar2 = document.getElementById('bar2');
+  const bar3 = document.getElementById('bar3');
+
+  function openMenu() {
+    menu?.classList.remove('hidden');
+    btn?.setAttribute('aria-expanded', 'true');
+    if (bar1 && bar2 && bar3) {
+      bar1.style.transform = 'translateY(8px) rotate(45deg)';
+      bar2.style.opacity = '0';
+      bar3.style.transform = 'translateY(-8px) rotate(-45deg)';
+    }
+  }
+
+  function closeMenu() {
+    menu?.classList.add('hidden');
+    btn?.setAttribute('aria-expanded', 'false');
+    if (bar1 && bar2 && bar3) {
+      bar1.style.transform = '';
+      bar2.style.opacity = '';
+      bar3.style.transform = '';
+    }
+  }
+
+  btn?.addEventListener('click', () => {
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    isOpen ? closeMenu() : openMenu();
+  });
+
+  menu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+</script>

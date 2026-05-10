@@ -859,7 +859,7 @@ function renderWorkoutCard(wtype, week, phase, deload){
   const moreLabel = moreCount>0 ? `<div class="ex-preview" style="color:var(--text3);font-size:13px">+${moreCount} more exercises</div>` : '';
   const deloadNote = deload ? `<div style="background:var(--amber-d);border:1px solid var(--amber);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--amber);font-weight:600;margin-bottom:12px">⚡ Deload Week — reduce all weights by 40–50%. 2 sets instead of ${exercises[0].sets}.</div>` : '';
   const footerBtn = done
-    ? `<button class="btn-rest">✓ Session Complete — View / Edit</button>`
+    ? `<button class="btn-rest" onclick="openWorkout('${wtype}')">✓ Session Complete — View / Edit</button>`
     : `<button class="btn-start" style="background:linear-gradient(135deg,${w.colorHex},${w.colorHex}CC)" onclick="openWorkout('${wtype}')">Start Workout — ~${w.duration} min →</button>`;
 
   return `<div class="section-label">Today — ${DAY_FULL[new Date().getDay()]}</div>
