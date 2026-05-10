@@ -1,3 +1,15 @@
+# Claude Code session data (contains conversation history and may contain secrets)
+history.jsonl
+projects/
+sessions/
+backups/
+cache/
+channels/
+plugins/
+shell-snapshots/
+.last-cleanup
+*.pid
+
 # build output
 dist/
 .output/
